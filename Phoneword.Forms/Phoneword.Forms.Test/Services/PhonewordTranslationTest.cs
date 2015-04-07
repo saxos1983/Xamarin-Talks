@@ -18,6 +18,8 @@
         // (Test Driven Development approach) before you start implementing PhonewordTranslator!
         // Try to cover all special cases in your tests.
 
+        // As a last hint, have a look at the Row Test feature (http://www.nunit.org/index.php?p=testCase&r=2.5) in NUnit. It might help you running the same test with different input.
+
         [Test]
         public void ToNumericNumber_ShouldTranslateCorrectly()
         {

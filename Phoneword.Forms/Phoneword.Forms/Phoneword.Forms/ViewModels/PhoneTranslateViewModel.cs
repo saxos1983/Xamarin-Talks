@@ -90,8 +90,7 @@
         }
         private void DoTranslate()
         {
-            // TODO Perform the translate operation
-            TranslatedNumber = new PhonewordTranslator().ToNumericNumber(_phoneNumberText);
+            TranslatedNumber = _appViewModel.PhonewordTranslator.ToNumericNumber(_phoneNumberText);
             _callCommand.RaiseCanExecuteChanged();
             // TODO Step 9: Update if the speech command can be executed.
         }

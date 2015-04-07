@@ -2,7 +2,10 @@
 
 using Xamarin.Forms;
 
-[assembly: Dependency(typeof(PhonewordTranslator))]
+// TODO Step 4: Register the appropriate IPhonewordTranslator instance for the corresponding target platform.
+// You could do this with any Inversion of Control Container (like Autofac, Ninject, TinyIoc, ...)
+// To keep it simple, try to register it with the builtin DepencyService of Xamarin.Forms
+// http://developer.xamarin.com/guides/cross-platform/xamarin-forms/dependency-service/
 namespace Phoneword.Forms.Services
 {
     using System.Text;
