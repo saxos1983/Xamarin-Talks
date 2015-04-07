@@ -14,18 +14,22 @@
             this.testee = new PhonewordTranslator();
         }
 
-        [TestCase("0190XAMARIN", "01909262746")]
-        [TestCase("0-190-XAMARIN", "0-190-9262746")]
-        [TestCase("01 90 XAMARIN", "01 90 9262746")]
-        [TestCase("DOTNETROCKS", "36863876257")]
-        [TestCase("0123456789", "0123456789")]
-        public void ToNumericNumber_ShouldTranslateCorrectly(string alphanumericNumber, string expected)
+        // TODO Step 3a: The test will fail. Please have a look in the specification for the desired behaviour and write the tests FIRST
+        // (Test Driven Development approach) before you start implementing PhonewordTranslator!
+        // Try to cover all special cases in your tests.
+
+        [Test]
+        public void ToNumericNumber_ShouldTranslateCorrectly()
         {
+            // Arrange
+            string alphanumericNumber = "0-190-XAMARIN";
+            string translatedNumber = "0-190-9262746";
+
             // Act
             string result = this.testee.ToNumericNumber(alphanumericNumber);
 
             // Assert
-            Assert.AreEqual(expected, result);
+            Assert.AreEqual(translatedNumber, result);
         }
     }
 }

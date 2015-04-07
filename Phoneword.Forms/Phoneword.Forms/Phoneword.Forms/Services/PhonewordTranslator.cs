@@ -10,53 +10,25 @@ namespace Phoneword.Forms.Services
     /// <inheritdoc />
     public class PhonewordTranslator : IPhonewordTranslator
     {
+        // TODO Step 3b: Implement the translation of the alphanumeric phone number to the numeric phone number correctly.
+        // The requirements are the following:
+        // -    The letters should be converted to the following numbers:
+        //          a, b, c	        --> 2
+        //          d, e, f	        --> 3
+        //          g, h, i	        --> 4
+        //          j, k, l	        --> 5
+        //          m, n, o	        --> 6
+        //          p, q, r, s	    --> 7
+        //          t, u, v	        --> 8
+        //          w, x, y, z	    --> 9
+        // -	Lower and uppercase letters should be handed similarly.
+        // -	Spaces and dashes should be allowed (e.g. 0190 555-222-1 is valid).
+        // -	Other or Special Characters should be skipped.
+
         /// <inheritdoc />
         public string ToNumericNumber(string alphanumericNumber)
         {
-            if (string.IsNullOrWhiteSpace(alphanumericNumber))
-                return string.Empty;
-
-            var newNumber = new StringBuilder();
-            foreach (char c in alphanumericNumber.ToUpperInvariant())
-            {
-                if (Contains(" -0123456789", c))
-                    newNumber.Append(c);
-                else
-                {
-                    var result = TranslateToNumber(c);
-                    if (result != null)
-                        newNumber.Append(result);
-                }
-                // Otherwise we skipped a special character.
-            }
-
-            return newNumber.ToString();
-        }
-
-        private static bool Contains(string keyString, char c)
-        {
-            return keyString.IndexOf(c) >= 0;
-        }
-
-        private static int? TranslateToNumber(char c)
-        {
-            if (Contains("ABC", c))
-                return 2;
-            else if (Contains("DEF", c))
-                return 3;
-            else if (Contains("GHI", c))
-                return 4;
-            else if (Contains("JKL", c))
-                return 5;
-            else if (Contains("MNO", c))
-                return 6;
-            else if (Contains("PQRS", c))
-                return 7;
-            else if (Contains("TUV", c))
-                return 8;
-            else if (Contains("WXYZ", c))
-                return 9;
-            return null;
+            return alphanumericNumber;
         }
     }
 }
