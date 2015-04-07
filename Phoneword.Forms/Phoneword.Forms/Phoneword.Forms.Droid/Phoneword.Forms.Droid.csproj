@@ -71,7 +71,6 @@
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\PhoneDialer.cs" />
-    <Compile Include="Services\Speech.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

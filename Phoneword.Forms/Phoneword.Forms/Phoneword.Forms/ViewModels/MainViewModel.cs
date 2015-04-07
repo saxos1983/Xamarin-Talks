@@ -17,11 +17,10 @@
 
         public ISpeech Speech { get; set; }
 
-        public MainViewModel(IDialer dialer, IPhonewordTranslator phonewordTranslator, ISpeech speech)
+        public MainViewModel(IDialer dialer, IPhonewordTranslator phonewordTranslator)
         {
             this.Dialer = dialer;
             this.PhonewordTranslator = phonewordTranslator;
-            this.Speech = speech;
         }
 
         ObservableCollection<string> _dialledNumbers = new ObservableCollection<string>();

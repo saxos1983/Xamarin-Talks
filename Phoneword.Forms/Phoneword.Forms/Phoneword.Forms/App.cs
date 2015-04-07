@@ -15,8 +15,8 @@ namespace Phoneword.Forms
             // TODO Resolve the appropriate IDialer instance for the corresponding target platform.
             var dialer = DependencyService.Get<IDialer>();
             var phonewordTranslator = DependencyService.Get<IPhonewordTranslator>();
-            var speech = DependencyService.Get<ISpeech>();
-            AppViewModel = new MainViewModel(dialer, phonewordTranslator, speech);
+            // TODO Resolve the appropriate ISpeech instance for the corresponding target platform.
+            AppViewModel = new MainViewModel(dialer, phonewordTranslator);
 
             MainPage = new NavigationPage(new PhoneTranslatePage());
         }

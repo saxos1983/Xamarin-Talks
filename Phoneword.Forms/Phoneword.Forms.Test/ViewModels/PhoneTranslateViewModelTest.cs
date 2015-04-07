@@ -10,7 +10,7 @@
     {
         MainViewModel appViewModel;
         DialerMock dialer;
-        private SpeechMock speechMock;
+        // TODO For later we will need a speech service mock to be able to run tests if the speech service was called correctly.
         PhonewordTranslatorMock phonewordTranslator;
         PhoneTranslateViewModel translateViewModel;
 
@@ -22,8 +22,7 @@
         {
             dialer = new DialerMock();
             phonewordTranslator = new PhonewordTranslatorMock();
-            speechMock = new SpeechMock();
-            appViewModel = new MainViewModel(dialer, phonewordTranslator, speechMock);
+            appViewModel = new MainViewModel(dialer, phonewordTranslator);
             translateViewModel = new PhoneTranslateViewModel(appViewModel);
         }
 
@@ -57,31 +56,6 @@
                 appViewModel.DialledNumbers[0] == TranslatedPhoneNumber);
         }
 
-        
-        [Test]
-        public void TestNoNarrateOnNotTranslatedNumber()
-        {
-            translateViewModel.TranslatedNumber = string.Empty;
-            Assert.IsFalse(translateViewModel.SpeechCommand.CanExecute(null));
-        }
-        
-        [Test]
-        public void TestNarrationAllowedOnTranslatedNumber()
-        {
-            translateViewModel.PhoneNumberText = AlphanumericPhoneNumber;
-            translateViewModel.TranslateCommand.Execute(null);
-            Assert.IsTrue(translateViewModel.SpeechCommand.CanExecute(null));
-        }
-
-        [Test]
-        public void TestPhoneNumberNarrated()
-        {
-            translateViewModel.PhoneNumberText = AlphanumericPhoneNumber;
-            translateViewModel.TranslateCommand.Execute(null);
-            translateViewModel.SpeechCommand.Execute(null);
-
-            Assert.IsTrue(speechMock.CalledSpeech);
-            Assert.AreEqual(speechMock.CalledTextToSpeech, "The translated number is 1 8 5 5 9 2 6 2 7 4 6 ");
-        }
+        // TODO We need some tests where we can check if the speech service was called correctly and with the proper text to be narrated.
     }
 }
