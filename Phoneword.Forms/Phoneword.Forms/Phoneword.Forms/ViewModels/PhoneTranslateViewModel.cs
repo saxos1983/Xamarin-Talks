@@ -30,13 +30,7 @@
             get { return _callHistoryCommand; }
         }
 
-
-        private DelegateCommand _speechCommand;
-
-        public ICommand SpeechCommand
-        {
-            get { return _speechCommand; }
-        }
+        // TODO Add a new speech command, which will call the text to speech service.
 
         MainViewModel _appViewModel;
 
@@ -47,7 +41,7 @@
             _translateCommand = new DelegateCommand(DoTranslate, () => !String.IsNullOrEmpty(PhoneNumberText));
             _callCommand = new DelegateCommand(DoCall, () => !String.IsNullOrEmpty(TranslatedNumber));
             _callHistoryCommand = new DelegateCommand(DoCallHistory); //, () => App.AppViewModel.DialledNumbers.Count > 0);
-            _speechCommand = new DelegateCommand(DoSpeechNumber, () => !String.IsNullOrEmpty(PhoneNumberText));
+            // TODO Initialize the speech command with the appropriate delegate.
         }
 
         private string _phoneNumberText = "";
@@ -99,33 +93,12 @@
             // TODO Perform the translate operation
             TranslatedNumber = new PhonewordTranslator().ToNumericNumber(_phoneNumberText);
             _callCommand.RaiseCanExecuteChanged();
-            _speechCommand.RaiseCanExecuteChanged();
+            // TODO Update if the speech command can be executed.
         }
 
-        private void DoSpeechNumber()
-        {
-            var messageToSpeak = "The translated number is " + this.GetOnlyNumbers(_translatedNumber);
-            _appViewModel.Speech.Speak(messageToSpeak);
-        }
-
-        private string GetOnlyNumbers(string number)
-        {
-            if (string.IsNullOrWhiteSpace(number))
-            {
-                return "unknown";
-            }
-            
-            var onlyNumbers = number.Replace("-", "").Replace(" ", "");
-
-            StringBuilder builder = new StringBuilder(onlyNumbers.Length * 2);
-            foreach (char c in onlyNumbers)
-            {
-                builder.Append(c);
-                builder.Append(' ');
-            }
-            string result = builder.ToString();
-            return result;
-        }
+        // TODO Create a delegate which will narrate the translated number.
+        // Keep in mind that we dont want to narrate allowed characters like '-' or spaces.
+        // Strip those characters out in a helper method, extension method, or whatever you like.
 
         public Action<string> CallFailed = delegate { };
 
