@@ -15,8 +15,6 @@
 
         public IPhonewordTranslator PhonewordTranslator { get; set; }
 
-        public ISpeech Speech { get; set; }
-
         public MainViewModel(IDialer dialer, IPhonewordTranslator phonewordTranslator)
         {
             this.Dialer = dialer;
