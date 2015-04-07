@@ -111,7 +111,7 @@
 
                 couldCall = _appViewModel.Dialer.Dial(_translatedNumber);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 couldCall = false;
             }

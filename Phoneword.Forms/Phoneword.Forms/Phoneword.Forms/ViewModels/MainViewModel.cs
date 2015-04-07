@@ -38,7 +38,8 @@
 
         public void LogPhoneNumber(string phoneNumber)
         {
-            DialledNumbers.Add(phoneNumber);
+            // TODO Step 6: Hmm... the translated phone number is not shown in the user interface.
+            // I think we forgot to implement something.
         }
     }
 }
