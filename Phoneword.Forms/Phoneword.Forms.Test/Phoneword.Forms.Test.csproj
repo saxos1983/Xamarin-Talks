@@ -36,7 +36,6 @@
   <ItemGroup>
     <Compile Include="Mocks\DialerMock.cs" />
     <Compile Include="Mocks\PhonewordTranslatorMock.cs" />
-    <Compile Include="Mocks\SpeechMock.cs" />
     <Compile Include="Services\PhonewordTranslationTest.cs" />
     <Compile Include="Test.cs" />
     <Compile Include="ViewModels\PhoneTranslateViewModelTest.cs" />
