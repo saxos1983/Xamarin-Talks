@@ -33,28 +33,13 @@
             Assert.IsFalse(translateViewModel.TranslateCommand.CanExecute(null));
         }
 
-        [Test]
-        public void TestPhoneNumberAllowsForTranslation()
-        {
-            translateViewModel.PhoneNumberText = AlphanumericPhoneNumber;
-            Assert.IsTrue(translateViewModel.TranslateCommand.CanExecute(null));
-        }
-
-        [Test]
-        public void TestPhoneNumberTranslates()
-        {
-            appViewModel.DialledNumbers.Clear();
-
-            translateViewModel.PhoneNumberText = AlphanumericPhoneNumber;
-            translateViewModel.TranslateCommand.Execute(null);
-            translateViewModel.CallCommand.Execute(null);
-
-            Assert.IsTrue(dialer.CalledDialer);
-            Assert.AreEqual(dialer.LastDialedNumber, TranslatedPhoneNumber);
-
-            Assert.IsTrue(appViewModel.DialledNumbers.Count == 1 &&
-                appViewModel.DialledNumbers[0] == TranslatedPhoneNumber);
-        }
+        // TODO Step 7: We have only one basic test which checks that the Translate Command can not be executed when the entered phone number is empty.
+        // Please add more tests for the this ViewModel tests.
+        // Candidates are:
+        // - When a phone number is entered the Translate Command can be executed.
+        // - When the phone number is translated check chat the translation is correct.
+        // - When the phone number is translated check that the translated number is added in the call history.
+        // - many many more.
 
         // TODO Step 9: We need some tests where we can check if the speech service was called correctly and with the proper text to be narrated.
     }
