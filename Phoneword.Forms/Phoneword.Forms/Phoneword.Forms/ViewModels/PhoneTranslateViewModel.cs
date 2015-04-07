@@ -30,7 +30,7 @@
             get { return _callHistoryCommand; }
         }
 
-        // TODO Add a new speech command, which will call the text to speech service.
+        // TODO Step 9: Add a new speech command, which will call the text to speech service.
 
         MainViewModel _appViewModel;
 
@@ -41,7 +41,7 @@
             _translateCommand = new DelegateCommand(DoTranslate, () => !String.IsNullOrEmpty(PhoneNumberText));
             _callCommand = new DelegateCommand(DoCall, () => !String.IsNullOrEmpty(TranslatedNumber));
             _callHistoryCommand = new DelegateCommand(DoCallHistory); //, () => App.AppViewModel.DialledNumbers.Count > 0);
-            // TODO Initialize the speech command with the appropriate delegate.
+            // TODO Step 9: Initialize the speech command with the appropriate delegate.
         }
 
         private string _phoneNumberText = "";
@@ -93,10 +93,10 @@
             // TODO Perform the translate operation
             TranslatedNumber = new PhonewordTranslator().ToNumericNumber(_phoneNumberText);
             _callCommand.RaiseCanExecuteChanged();
-            // TODO Update if the speech command can be executed.
+            // TODO Step 9: Update if the speech command can be executed.
         }
 
-        // TODO Create a delegate which will narrate the translated number.
+        // TODO Step 9: Create a delegate which will narrate the translated number.
         // Keep in mind that we dont want to narrate allowed characters like '-' or spaces.
         // Strip those characters out in a helper method, extension method, or whatever you like.
 

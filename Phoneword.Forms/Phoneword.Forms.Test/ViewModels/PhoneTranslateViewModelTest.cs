@@ -10,7 +10,7 @@
     {
         MainViewModel appViewModel;
         DialerMock dialer;
-        // TODO For later we will need a speech service mock to be able to run tests if the speech service was called correctly.
+        // TODO Step 9: For later we will need a speech service mock to be able to run tests if the speech service was called correctly.
         PhonewordTranslatorMock phonewordTranslator;
         PhoneTranslateViewModel translateViewModel;
 
@@ -56,6 +56,6 @@
                 appViewModel.DialledNumbers[0] == TranslatedPhoneNumber);
         }
 
-        // TODO We need some tests where we can check if the speech service was called correctly and with the proper text to be narrated.
+        // TODO Step 9: We need some tests where we can check if the speech service was called correctly and with the proper text to be narrated.
     }
 }
