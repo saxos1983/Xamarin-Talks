@@ -38,7 +38,6 @@
     <Compile Include="Mocks\PhonewordTranslatorMock.cs" />
     <Compile Include="Mocks\SpeechMock.cs" />
     <Compile Include="Services\PhonewordTranslationTest.cs" />
-    <Compile Include="Test.cs" />
     <Compile Include="ViewModels\PhoneTranslateViewModelTest.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
