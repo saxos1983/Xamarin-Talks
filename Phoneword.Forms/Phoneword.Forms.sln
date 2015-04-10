@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Phoneword.Forms.Test", "Pho
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Phoneword.Forms.AndroidTest", "Phoneword.Forms.AndroidTest\Phoneword.Forms.AndroidTest.csproj", "{88E3CADA-7CD5-41B9-8EBF-5D4FC440A3AF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Phoneword.Forms.iOSTest", "Phoneword.Forms.iOSTest\Phoneword.Forms.iOSTest.csproj", "{433CCB27-8D48-484C-983C-4669B0B2D038}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Ad-Hoc|Any CPU = Ad-Hoc|Any CPU
@@ -295,6 +297,42 @@ Global
 		{88E3CADA-7CD5-41B9-8EBF-5D4FC440A3AF}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{88E3CADA-7CD5-41B9-8EBF-5D4FC440A3AF}.Release|Mixed Platforms.Deploy.0 = Release|Any CPU
 		{88E3CADA-7CD5-41B9-8EBF-5D4FC440A3AF}.Release|x86.ActiveCfg = Release|Any CPU
+		{433CCB27-8D48-484C-983C-4669B0B2D038}.Ad-Hoc|Any CPU.ActiveCfg = Ad-Hoc|iPhone
+		{433CCB27-8D48-484C-983C-4669B0B2D038}.Ad-Hoc|ARM.ActiveCfg = Ad-Hoc|iPhone
+		{433CCB27-8D48-484C-983C-4669B0B2D038}.Ad-Hoc|iPhone.ActiveCfg = Ad-Hoc|iPhone
+		{433CCB27-8D48-484C-983C-4669B0B2D038}.Ad-Hoc|iPhone.Build.0 = Ad-Hoc|iPhone
+		{433CCB27-8D48-484C-983C-4669B0B2D038}.Ad-Hoc|iPhoneSimulator.ActiveCfg = Ad-Hoc|iPhoneSimulator
+		{433CCB27-8D48-484C-983C-4669B0B2D038}.Ad-Hoc|iPhoneSimulator.Build.0 = Ad-Hoc|iPhoneSimulator
+		{433CCB27-8D48-484C-983C-4669B0B2D038}.Ad-Hoc|Mixed Platforms.ActiveCfg = Ad-Hoc|iPhone
+		{433CCB27-8D48-484C-983C-4669B0B2D038}.Ad-Hoc|Mixed Platforms.Build.0 = Ad-Hoc|iPhone
+		{433CCB27-8D48-484C-983C-4669B0B2D038}.Ad-Hoc|x86.ActiveCfg = Ad-Hoc|iPhone
+		{433CCB27-8D48-484C-983C-4669B0B2D038}.AppStore|Any CPU.ActiveCfg = AppStore|iPhone
+		{433CCB27-8D48-484C-983C-4669B0B2D038}.AppStore|ARM.ActiveCfg = AppStore|iPhone
+		{433CCB27-8D48-484C-983C-4669B0B2D038}.AppStore|iPhone.ActiveCfg = AppStore|iPhone
+		{433CCB27-8D48-484C-983C-4669B0B2D038}.AppStore|iPhone.Build.0 = AppStore|iPhone
+		{433CCB27-8D48-484C-983C-4669B0B2D038}.AppStore|iPhoneSimulator.ActiveCfg = AppStore|iPhoneSimulator
+		{433CCB27-8D48-484C-983C-4669B0B2D038}.AppStore|iPhoneSimulator.Build.0 = AppStore|iPhoneSimulator
+		{433CCB27-8D48-484C-983C-4669B0B2D038}.AppStore|Mixed Platforms.ActiveCfg = AppStore|iPhone
+		{433CCB27-8D48-484C-983C-4669B0B2D038}.AppStore|Mixed Platforms.Build.0 = AppStore|iPhone
+		{433CCB27-8D48-484C-983C-4669B0B2D038}.AppStore|x86.ActiveCfg = AppStore|iPhone
+		{433CCB27-8D48-484C-983C-4669B0B2D038}.Debug|Any CPU.ActiveCfg = Debug|iPhone
+		{433CCB27-8D48-484C-983C-4669B0B2D038}.Debug|ARM.ActiveCfg = Debug|iPhone
+		{433CCB27-8D48-484C-983C-4669B0B2D038}.Debug|iPhone.ActiveCfg = Debug|iPhone
+		{433CCB27-8D48-484C-983C-4669B0B2D038}.Debug|iPhone.Build.0 = Debug|iPhone
+		{433CCB27-8D48-484C-983C-4669B0B2D038}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
+		{433CCB27-8D48-484C-983C-4669B0B2D038}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
+		{433CCB27-8D48-484C-983C-4669B0B2D038}.Debug|Mixed Platforms.ActiveCfg = Debug|iPhone
+		{433CCB27-8D48-484C-983C-4669B0B2D038}.Debug|Mixed Platforms.Build.0 = Debug|iPhone
+		{433CCB27-8D48-484C-983C-4669B0B2D038}.Debug|x86.ActiveCfg = Debug|iPhone
+		{433CCB27-8D48-484C-983C-4669B0B2D038}.Release|Any CPU.ActiveCfg = Release|iPhone
+		{433CCB27-8D48-484C-983C-4669B0B2D038}.Release|ARM.ActiveCfg = Release|iPhone
+		{433CCB27-8D48-484C-983C-4669B0B2D038}.Release|iPhone.ActiveCfg = Release|iPhone
+		{433CCB27-8D48-484C-983C-4669B0B2D038}.Release|iPhone.Build.0 = Release|iPhone
+		{433CCB27-8D48-484C-983C-4669B0B2D038}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
+		{433CCB27-8D48-484C-983C-4669B0B2D038}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+		{433CCB27-8D48-484C-983C-4669B0B2D038}.Release|Mixed Platforms.ActiveCfg = Release|iPhone
+		{433CCB27-8D48-484C-983C-4669B0B2D038}.Release|Mixed Platforms.Build.0 = Release|iPhone
+		{433CCB27-8D48-484C-983C-4669B0B2D038}.Release|x86.ActiveCfg = Release|iPhone
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
