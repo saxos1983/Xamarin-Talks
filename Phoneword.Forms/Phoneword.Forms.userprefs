@@ -1,5 +1,5 @@
-﻿<Properties StartupItem="Phoneword.Forms\Phoneword.Forms\Phoneword.Forms.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+﻿<Properties StartupItem="Phoneword.Forms/Phoneword.Forms.iOS/Phoneword.Forms.iOS.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone4s.8.1" />
   <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
