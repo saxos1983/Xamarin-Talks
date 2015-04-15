@@ -1,0 +1,129 @@
+require 'fileutils'
+require 'rubygems'
+
+# Some utility functions
+def set(key, value)
+  if false == value
+    value = 'FALSE'
+  elsif true == value
+    value = 'TRUE'
+  end
+  ENV[key.to_s.upcase] = value
+end
+
+def fetch(key)
+  val = ENV[key.to_s.upcase]
+  if 'FALSE' == val
+    val = false
+  elsif 'TRUE' == val
+    val = true
+  end
+  val
+end
+
+# Hardcoding these paths here - adjust them as necessary. These shouldn't change much
+@current_dir = File.dirname(__FILE__)
+@mono = '/Library/Frameworks/Mono.framework/Versions/Current/bin/mono'
+@apk = "#{@current_dir}/Tasky.Droid/bin/Release/com.xamarin.samples.taskydroid-Signed.apk"
+# If you update the build number, remember to update the IPA filename.
+@ipa = "#{@current_dir}/Tasky.iOS/bin/iPhone/Debug/TaskyiOS-2.ipa"
+@dsym = "#{@current_dir}/Tasky.iOS/bin/iPhone/Debug/TaskyiOS.app.dSYM"
+
+# These values will come from either the file rake_env or environment variables
+@xtc_api_key = fetch(:xtc_api_key)
+@android_device_id = fetch(:xtc_android_device_id)
+@ios_device_id = fetch(:xtc_ios_device_id)
+@xtc_user = fetch(:xtc_user)
+
+task :default => [:clean, :build]
+
+task :require_environment do
+  if @xtc_api_key.nil? || 0 == @xtc_api_key.length
+    raise Exception.new("No Test Cloud API  specified. Please set the XTC_API_KEY environment variable.")
+  end
+
+  if @ios_device_id.nil? || 0 == @ios_device_id.length
+    raise Exception.new("No iOS test devices specifed. Please set the XTC_IOS_DEVICE_ID environment variable.")
+  end
+
+  if @android_device_id.nil? || 0 == @android_device_id.length
+    raise Exception.new("No Android test devices specified. Please set the XTC_ANDROID_DEVICE_ID environment variable.")
+  end
+
+  if (@xtc_user.nil? || 0 == @xtc_user)
+    raise Exception.new("No Test Cloud team member specified. Please set the XTC_USER environment variable.")
+  end
+end
+
+desc "Cleans the project"
+task :clean => [:clean_screenshots] do
+  directories_to_delete = [
+      "./bin",
+      "./obj",
+      "./screenshots",
+      "./testresults.html",
+      "./Tasky.iOS/bin",
+      "./Tasky.iOS/obj",
+      "./Tasky.Droid/bin",
+      "./Tasky.Droid/obj",
+      "./Tasky.Core/bin",
+      "./Tasky.Core/obj"
+  ]
+
+  directories_to_delete.each { |x|
+    rm_rf x
+  }
+end
+
+desc "Compiles the Android and iOS projects."
+task :build => [:build_android, :build_ios] do
+
+end
+
+task :clean_screenshots do
+  directories_to_delete = [
+      "./screenshots/"
+  ]
+
+  directories_to_delete.each { |directory|
+    rm_rf directory
+  }
+end
+
+task :build_android => [:clean] do
+  `/usr/bin/xbuild /t:SignAndroidPackage /p:Configuration=Release ./Tasky.Droid/Tasky.Droid.csproj`
+end
+
+task :build_ios => [:clean] do
+  puts "Build the ad-hoc IPA:"
+  system '/Applications/Xamarin\\ Studio.app/Contents/MacOS/mdtool build "--configuration:Debug|iPhone" TaskyPro-Calabash.sln'
+  puts "Build the iPhoneSimulator:"
+  system '/Applications/Xamarin\\ Studio.app/Contents/MacOS/mdtool build "--configuration:Debug|iPhoneSimulator" TaskyPro-Calabash.sln'
+end
+
+task :xtc_android => [:require_environment, :build_android] do
+  raise "Missing the APK #{@apk}" unless File.exists?(@apk)
+
+  build_test_server_cmd = "calabash-android build #{@apk}"
+  system(build_test_server_cmd)
+
+  # Note that we submit to XTC asynchronously.
+  submit_to_xtc_cmd= "test-cloud submit #{@apk} #{@xtc_api_key} --async --devices #{@android_device_id} --profile=android --config=config/cucumber.yml --pretty --app-name=\"Tasky Pro\" --user=#{@xtc_user} --series \"Calabash\""
+
+  system(submit_to_xtc_cmd)
+end
+
+task :xtc_ios => [:require_environment, :build_ios] do
+  # Note that we submit to XTC asynchronously.
+  submit_to_xtc_cmd = "test-cloud submit #{@ipa} #{@xtc_api_key} --async --devices #{@ios_device_id} --profile=ios --config=config/cucumber.yml --pretty -y #{@dsym} --user=#{@xtc_user} --app-name=\"Tasky Pro\" --series \"Calabash\""
+
+  system(submit_to_xtc_cmd)
+end
+
+desc "Builds the applications and submits apps to Xamarin Test Cloud."
+task :xtc => [:require_environment, :xtc_android, :xtc_ios]  do
+end
+
+task :test_android => [:build_android] do
+  system "calabash-android run #{@apk} -p android"
+end
