@@ -2,7 +2,7 @@
 
 using Xamarin.Forms;
 
-// TODO Step 5: Register the appropriate IDialer instance for the corresponding target platform.
+// TODO Step 4: Register the appropriate IDialer instance for the corresponding target platform.
 // You could do this with any Inversion of Control Container (like Autofac, Ninject, TinyIoc, ...)
 // To keep it simple, try to register it with the builtin DepencyService of Xamarin.Forms
 // http://developer.xamarin.com/guides/cross-platform/xamarin-forms/dependency-service/

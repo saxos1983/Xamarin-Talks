@@ -12,9 +12,9 @@ namespace Phoneword.Forms
 
         public App()
         {
-            // TODO Step 4: Resolve the appropriate IPhonewordTranslator instance for the corresponding target platform.
-            // TODO Step 5: Resolve the appropriate IDialer instance for the corresponding target platform.
-            // TODO Step 9: Resolve the appropriate ISpeech instance for the corresponding target platform.
+            // TODO Step 3: Resolve the appropriate IPhonewordTranslator instance for the corresponding target platform.
+            // TODO Step 4: Resolve the appropriate IDialer instance for the corresponding target platform.
+            // TODO Step 7: Resolve the appropriate ISpeech instance for the corresponding target platform.
 
             // Hint: Registering and resolving dependencies can be made in many different ways and frameworks.
             // You could do this with any Inversion of Control Container (like Autofac, Ninject, TinyIoc, ...)

@@ -14,7 +14,7 @@
             this.testee = new PhonewordTranslator();
         }
 
-        // TODO Step 3a: The test will fail. Please have a look in the specification for the desired behaviour and write the tests FIRST
+        // TODO Step 1: The test will fail. Please have a look in the specification for the desired behaviour and write the tests FIRST
         // (Test Driven Development approach) before you start implementing PhonewordTranslator!
         // Try to cover all special cases in your tests.
 

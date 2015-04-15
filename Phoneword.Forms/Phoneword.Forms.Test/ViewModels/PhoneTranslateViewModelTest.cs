@@ -10,7 +10,7 @@
     {
         MainViewModel appViewModel;
         DialerMock dialer;
-        // TODO Step 9: For later we will need a speech service mock to be able to run tests if the speech service was called correctly.
+        // TODO Step 7: For later we will need a speech service mock to be able to run tests if the speech service was called correctly.
         PhonewordTranslatorMock phonewordTranslator;
         PhoneTranslateViewModel translateViewModel;
 
@@ -33,7 +33,7 @@
             Assert.IsFalse(translateViewModel.TranslateCommand.CanExecute(null));
         }
 
-        // TODO Step 7: We have only one basic test which checks that the Translate Command can not be executed when the entered phone number is empty.
+        // TODO Step 6: We have only one basic test which checks that the Translate Command can not be executed when the entered phone number is empty.
         // Please add more tests for the this ViewModel tests.
         // Candidates are:
         // - When a phone number is entered the Translate Command can be executed.
@@ -41,6 +41,6 @@
         // - When the phone number is translated check that the translated number is added in the call history.
         // - many many more.
 
-        // TODO Step 9: We need some tests where we can check if the speech service was called correctly and with the proper text to be narrated.
+        // TODO Step 7: We need some tests where we can check if the speech service was called correctly and with the proper text to be narrated.
     }
 }

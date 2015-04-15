@@ -2,7 +2,7 @@
 
 using Xamarin.Forms;
 
-// TODO Step 4: Register the appropriate IPhonewordTranslator instance for the corresponding target platform.
+// TODO Step 3: Register the appropriate IPhonewordTranslator instance for the corresponding target platform.
 // You could do this with any Inversion of Control Container (like Autofac, Ninject, TinyIoc, ...)
 // To keep it simple, try to register it with the builtin DepencyService of Xamarin.Forms
 // http://developer.xamarin.com/guides/cross-platform/xamarin-forms/dependency-service/
@@ -13,7 +13,7 @@ namespace Phoneword.Forms.Services
     /// <inheritdoc />
     public class PhonewordTranslator : IPhonewordTranslator
     {
-        // TODO Step 3b: Implement the translation of the alphanumeric phone number to the numeric phone number correctly.
+        // TODO Step 2: Implement the translation of the alphanumeric phone number to the numeric phone number correctly.
         // The requirements are the following:
         // -    The letters should be converted to the following numbers:
         //          a, b, c	        --> 2
